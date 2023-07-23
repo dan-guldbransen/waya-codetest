@@ -1,18 +1,20 @@
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import FolderIcon from '@mui/icons-material/Folder';
-import ListItemText from '@mui/material/ListItemText';
-import Pagination from '@mui/material/Pagination';
 import { useQuery } from '@tanstack/react-query';
 import { getInvoices } from '../../api';
 import { useState } from 'react';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import DescriptionIcon from '@mui/icons-material/Description';
+import ListItemText from '@mui/material/ListItemText';
+import Pagination from '@mui/material/Pagination';
 import Invoice from '../Invoice';
+import { useTheme } from '@mui/material';
 
 const InvoiceList = () => {
   const [page, setPage] = useState(1);
   const [open, setOpen] = useState(false);
   const [id, setId] = useState<number | null>(null);
+  const theme = useTheme();
 
   const handleOpen = (currentId: number) => {
     setId(currentId);
@@ -41,7 +43,7 @@ const InvoiceList = () => {
               sx={{ cursor: 'pointer' }}
             >
               <ListItemIcon>
-                <FolderIcon />
+                <DescriptionIcon htmlColor={theme.palette.primary.main} />
               </ListItemIcon>
               <ListItemText
                 primary={invoice.customer_name}

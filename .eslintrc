@@ -29,7 +29,7 @@
     "no-empty": "off",
     "no-plusplus": "off",
     "no-shadow": "off",
-    "quotes": ["error", "single"],
+    "quotes": ["error", "single", { "avoidEscape": true }],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/function-component-definition": "off",

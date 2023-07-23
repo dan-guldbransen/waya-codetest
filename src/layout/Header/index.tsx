@@ -1,24 +1,37 @@
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import IconButton from '@mui/material/IconButton';
+import WayaLogo from '../../svg/Logo';
 
 const Header = () => (
-  <Box sx={{ flexGrow: 1 }}>
-    <AppBar position='static'>
-      <Toolbar>
-        <IconButton
-          size='large'
-          edge='start'
-          color='inherit'
-          aria-label='header'
-          sx={{ ml: 0 }}
-        ></IconButton>
-        <Typography variant='h6' component='div' sx={{ flexGrow: 1 }}>
-          Invoices
+  <Box sx={{ flexGrow: 1, position: 'relative' }}>
+    <AppBar
+      sx={{
+        position: 'relative',
+        width: '100%',
+        height: 200,
+        p: 4,
+      }}
+    >
+      <WayaLogo />
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          height: '100%',
+          textTransform: 'uppercase',
+        }}
+      >
+        <Typography variant='h1' component={'h1'}>
+          invoice
         </Typography>
-      </Toolbar>
+        <Typography variant='h3' component={'h3'}>
+          Dan Guldbransen
+        </Typography>
+      </Box>
     </AppBar>
   </Box>
 );
