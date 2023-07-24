@@ -8,9 +8,7 @@ const theme = createTheme({
       dark: '#ff6fb8',
     },
     secondary: {
-      main: '#333333',
-      light: '#f1f1f1',
-      dark: '#000000',
+      main: '#313131',
     },
     background: {
       default: '#ffffff',
@@ -24,7 +22,6 @@ const theme = createTheme({
 
   typography: {
     fontFamily: 'Bebas Neue, Helvetica, Arial, sans-serif',
-
     h1: {
       fontSize: '4.5rem',
       letterSpacing: '0.5rem',
@@ -32,22 +29,19 @@ const theme = createTheme({
       textTransform: 'uppercase',
     },
     h2: {
-      fontSize: '3rem',
-      fontWeight: 400,
-      textTransform: 'uppercase',
-    },
-    h3: {
       fontSize: '1.5rem',
+      letterSpacing: '0.1rem',
       fontWeight: 400,
       textTransform: 'uppercase',
     },
+
     body1: {
       letterSpacing: '0.2rem',
-      fontSize: '1.2rem',
+      fontSize: '1.5rem',
       fontWeight: 400,
     },
     body2: {
-      fontSize: '0.875rem',
+      fontSize: '1rem',
       fontWeight: 400,
       letterSpacing: '0.1rem',
     },
@@ -101,7 +95,7 @@ const theme = createTheme({
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '1rem ',
-          borderBottom: '1px solid #f1f1f1',
+          borderBottom: '1px solid #ff6fb8',
           '&:last-child': {
             borderBottom: 'none',
           },
@@ -118,16 +112,16 @@ const theme = createTheme({
           alignItems: 'center',
           background: '#b8407d',
           padding: '2vh',
-          color: '#fff',
-          fontWeight: 700,
           letterSpacing: '0.1rem',
           '& .MuiPaginationItem-root': {
-            color: '#fff',
             fontWeight: 700,
-            '&.Mui-selected': {
-              backgroundColor: '#fff',
-              color: '#b8407d',
-            },
+            letterSpacing: '0.1rem',
+            backgroundColor: 'transparent',
+            color: '#ffffff',
+          },
+          '& .MuiPaginationItem-root.Mui-selected': {
+            backgroundColor: '#ff6fb8',
+            color: '#ffffff',
           },
         },
       },

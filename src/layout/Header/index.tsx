@@ -27,7 +27,7 @@ const Header = () => (
         <Typography variant='h1' component={'h1'}>
           Invoice App
         </Typography>
-        <Typography variant='h3' component={'h3'}>
+        <Typography variant='h2' component={'h2'}>
           a codetest by Dan Guldbransen
         </Typography>
       </Box>

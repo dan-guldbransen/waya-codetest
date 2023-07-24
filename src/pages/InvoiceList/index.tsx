@@ -34,7 +34,15 @@ const InvoiceList = () => {
 
   return (
     <>
-      <List sx={{ padding: 0, color: theme.palette.text.primary }}>
+      <List
+        sx={{
+          padding: 0,
+          color: theme.palette.text.primary,
+          '$:nth-child(odd)': {
+            backgroundColor: '#ffffff',
+          },
+        }}
+      >
         {data?.data.map((invoice) => (
           <>
             <ListItem
@@ -43,9 +51,8 @@ const InvoiceList = () => {
               sx={{
                 cursor: 'pointer',
                 color: theme.palette.text.primary,
-                backgroundColor: theme.palette.primary.light,
                 '&:hover, &:active, &:focus': {
-                  backgroundColor: theme.palette.primary.dark,
+                  backgroundColor: theme.palette.primary.light,
                 },
               }}
             >
@@ -70,11 +77,18 @@ const InvoiceList = () => {
                 primary={invoice.customer_name}
                 secondary={invoice.ocr}
                 sx={{
-                  color: theme.palette.text.primary,
                   display: 'flex',
                   alignItems: 'center',
                   flexDirection: 'row',
                   justifyContent: 'space-between',
+                }}
+                primaryTypographyProps={{
+                  variant: 'h2',
+                  color: theme.palette.text.primary,
+                }}
+                secondaryTypographyProps={{
+                  variant: 'body2',
+                  color: theme.palette.secondary.main,
                 }}
               />
             </ListItem>
