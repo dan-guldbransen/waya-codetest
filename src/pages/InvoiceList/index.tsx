@@ -34,29 +34,53 @@ const InvoiceList = () => {
 
   return (
     <>
-      <List>
+      <List sx={{ padding: 0, color: theme.palette.text.primary }}>
         {data?.data.map((invoice) => (
           <>
             <ListItem
               key={invoice.id}
               onClick={() => handleOpen(invoice.id)}
-              sx={{ cursor: 'pointer' }}
+              sx={{
+                cursor: 'pointer',
+                color: theme.palette.text.primary,
+                backgroundColor: theme.palette.primary.light,
+                '&:hover, &:active, &:focus': {
+                  backgroundColor: theme.palette.primary.dark,
+                },
+              }}
             >
-              <ListItemIcon>
-                <DescriptionIcon htmlColor={theme.palette.primary.main} />
+              <ListItemIcon
+                sx={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  mr: 2,
+                  width: 50,
+                }}
+              >
+                <DescriptionIcon
+                  htmlColor={theme.palette.primary.main}
+                  fontSize='large'
+                  sx={{
+                    width: '100%',
+                    height: '100%',
+                  }}
+                />
               </ListItemIcon>
               <ListItemText
                 primary={invoice.customer_name}
                 secondary={invoice.ocr}
+                sx={{
+                  color: theme.palette.text.primary,
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                }}
               />
             </ListItem>
           </>
         ))}
-        <Pagination
-          count={data?.pagination.pages}
-          onChange={handleSetPage}
-          color='primary'
-        />
+        <Pagination count={data?.pagination.pages} onChange={handleSetPage} />
       </List>
       {!!id && <Invoice open={open} handleClose={handleClose} id={id} />}
     </>

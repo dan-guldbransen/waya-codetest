@@ -22,14 +22,13 @@ const Header = () => (
           alignItems: 'center',
           justifyContent: 'center',
           height: '100%',
-          textTransform: 'uppercase',
         }}
       >
         <Typography variant='h1' component={'h1'}>
-          invoice
+          Invoice App
         </Typography>
         <Typography variant='h3' component={'h3'}>
-          Dan Guldbransen
+          a codetest by Dan Guldbransen
         </Typography>
       </Box>
     </AppBar>
