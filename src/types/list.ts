@@ -1,4 +1,11 @@
-export type InvoicesType = {
+type InvoiceRows = {
+  id: number;
+  text: string;
+  quantity: number;
+  price: string;
+};
+
+export type InvoicePageType = {
   id: number;
   ocr: number;
   created_at: string;
@@ -14,6 +21,7 @@ export type InvoicesType = {
   delivery_zip: string;
   delivery_city: string;
   delivery_country: string;
+  invoice_rows?: InvoiceRows[];
 };
 
 export type Pagination = {
@@ -23,10 +31,8 @@ export type Pagination = {
 };
 
 export type InvoiceListType = {
-  data: InvoicesType[];
+  data: InvoicePageType[];
   pagination: Pagination;
 };
 
-export type InvoiceType = {
-  data: InvoicesType;
-};
+export type InvoiceType = ReadonlyArray<InvoicePageType>;

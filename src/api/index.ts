@@ -1,34 +1,51 @@
-import { InvoiceListType, InvoiceType } from '../types/list';
+import { InvoiceListType, InvoicePageType } from '../types/list';
 
 const url = 'https://code-test.sandbox.waya.se';
 const USER_KEY = 'UserKey lwf9Dv6mCL5nTn2W';
 
 export const getInvoices = async (page: number): Promise<InvoiceListType> => {
   try {
-    const data = await fetch(url + `/api/invoices?page=${page}`, {
+    const response = await fetch(url + `/api/invoices?page=${page}`, {
       headers: {
         Authorization: USER_KEY,
       },
     });
-    const result: InvoiceListType = await data.json();
-    return result;
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
 
-export const getInvoice = async (id: number): Promise<InvoiceType> => {
+export const getInvoice = async (id: number): Promise<InvoicePageType> => {
   try {
-    const data = await fetch(url + `/api/invoices/${id}`, {
+    const response = await fetch(url + `/api/invoices/${id}`, {
       headers: {
         Authorization: USER_KEY,
       },
     });
-    const result: InvoiceType = await data.json();
-    return result;
+    const jsonData = await response.json();
+    return jsonData.data;
   } catch (error) {
-    console.log(error);
+    throw error;
+  }
+};
+
+export const editInvoice = async (
+  id: number,
+  newData: InvoicePageType
+): Promise<InvoicePageType> => {
+  try {
+    const response = await fetch(url + `/api/invoices/${id}`, {
+      headers: {
+        Authorization: USER_KEY,
+      },
+      method: 'PUT',
+      body: JSON.stringify(newData),
+    });
+    const jsonData = await response.json();
+    return jsonData.data;
+  } catch (error) {
     throw error;
   }
 };

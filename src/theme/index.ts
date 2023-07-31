@@ -1,18 +1,31 @@
 import createTheme from '@mui/material/styles/createTheme';
 
+declare module '@mui/material/styles' {
+  interface Theme {
+    status: {
+      danger: string;
+    };
+  }
+  interface ThemeOptions {
+    status?: {
+      danger?: string;
+    };
+  }
+}
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#b8407d',
-      light: '#ffd2e9',
-      dark: '#ff6fb8',
+      main: '#B8407D',
+      dark: '#a0346a',
     },
     secondary: {
-      main: '#313131',
+      main: '##E00070',
+      dark: '#FFF3F9',
+      light: '#FFF3F9',
     },
     background: {
-      default: '#ffffff',
-      paper: '#ffffff',
+      paper: '#FFEBF4',
     },
     text: {
       primary: '#000000',
@@ -34,14 +47,13 @@ const theme = createTheme({
       fontWeight: 400,
       textTransform: 'uppercase',
     },
-
     body1: {
       letterSpacing: '0.2rem',
       fontSize: '1.5rem',
       fontWeight: 400,
     },
     body2: {
-      fontSize: '1rem',
+      fontSize: '1.3rem',
       fontWeight: 400,
       letterSpacing: '0.1rem',
     },
@@ -77,6 +89,52 @@ const theme = createTheme({
         },
       },
     },
+
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          fontSize: '1.3rem',
+          color: '#E00070',
+          fontWeight: 400,
+          letterSpacing: '0.1rem',
+        },
+      },
+    },
+
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          width: '100%',
+          border: 'none',
+          padding: 0,
+        },
+      },
+    },
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          padding: 0,
+          letterSpacing: '0',
+          fontSize: '1.3rem',
+          ':before': {
+            width: '100%',
+            maxWidth: 200,
+          },
+          ':after': {
+            width: '100%',
+            maxWidth: 200,
+          },
+        },
+      },
+    },
+    MuiModal: {
+      styleOverrides: {
+        root: {
+          alignItems: 'center',
+          justifyContent: 'center',
+        },
+      },
+    },
     MuiList: {
       styleOverrides: {
         root: {
@@ -102,6 +160,7 @@ const theme = createTheme({
         },
       },
     },
+
     MuiPagination: {
       styleOverrides: {
         root: {

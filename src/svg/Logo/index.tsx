@@ -8,7 +8,7 @@ export default function Logo() {
         width: 165,
         height: 53,
         top: '50%',
-        left: 24,
+        left: 48,
         transform: 'translateY(-50%) ',
       }}
     >

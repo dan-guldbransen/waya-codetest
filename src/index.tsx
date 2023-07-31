@@ -4,7 +4,9 @@ import CssBaseline from '@mui/material/CssBaseline';
 import ThemeProvider from '@mui/material/styles/ThemeProvider';
 import Header from './layout/Header';
 import InvoiceList from './pages/InvoiceList';
-import theme from './styles/theme';
+import theme from './theme';
+import Paper from '@mui/material/Paper';
+import Container from '@mui/material/Container';
 
 const queryClient = new QueryClient();
 
@@ -14,7 +16,17 @@ function App() {
       <CssBaseline />
       <ThemeProvider theme={theme}>
         <Header />
-        <InvoiceList />
+        <Container maxWidth='md'>
+          <Paper
+            sx={{
+              mt: 2,
+              mb: 2,
+              p: 2,
+            }}
+          >
+            <InvoiceList />
+          </Paper>
+        </Container>
       </ThemeProvider>
     </QueryClientProvider>
   );
